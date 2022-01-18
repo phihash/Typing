@@ -7,12 +7,24 @@
   <title>Typing</title>
   <link rel="stylesheet" href="style.css">
   <link rel="apple-touch-icon" href="src/apple-touch-icon.PNG">
-  <link rel="favicon" href="src/apple-touch-icon.PNG">
+  <link rel="icon" href="src/apple-touch-icon.PNG">
 </head>
 <body>
-  <h1>Hello</h1>
-  <div class="typing-area">
-    <input type="text" placeholder="答えを入力">
+  <div class="SiteWrapper">
+    <header class="wrapper">
+      <div class="header">
+       <h2>Typing Score</h2>
+      </div>
+    </header>
+    <main class="wrapper">
+      <div class="typing-area">
+        <p id="question"></p>
+        <input type="text" placeholder="答えを入力" id="typing-input">
+      </div>
+    </main>
+    <footer>
+      ©2022 phihash
+    </footer>
   </div>
   <script src="./dist/main.js"></script>
 </body>
