@@ -3,7 +3,7 @@
  * クリック、キープレスなにかしらの処理があればはじまる
  */
 
-import { wrongAnswer,isSmartPhone } from "./logic.js";
+import { wrongWords,isSmartPhone } from "./logic.js";
 //const typing
 
 export const typingInput = document.getElementById("typing-input");
@@ -19,6 +19,9 @@ const doReload = () => {
 /**
  * 配列に補完された間違えた問題と答えを最後に表示する
  */
+const showWrongWords = () =>{
+
+}
 
 
 /**
@@ -27,18 +30,24 @@ const doReload = () => {
 
 const tapOrKeyPress = () => {
   if(isSmartPhone()){
-    question.textContent = "これはスマホです"
+    question.textContent = "適当にタップするとはじまります";
   }else{
-    question.textContent = "これはPCです"
+    question.textContent = "適当にキーボードを押すとはじまります";
   }
 }
 
 /**
- * タッチされたときの処理
+ * タッチされたときの処理｀
  */
-window.addEventListener("touchstart", function (event) {
-  //処理を記述
-});
+window.addEventListener("touchstart", startTyping);
+
+document.addEventListener("keydown", startTyping);
+
+const startTyping = () => {
+    question.textContent = "はじまりました"
+}
+
+
 
 export const typingInputKeyPress = (e) => {
   if(e.key == 'Enter'){

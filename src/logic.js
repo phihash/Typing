@@ -17,4 +17,4 @@ export const isSmartPhone = () => {
 }
 
 
-export const wrongAnswer = ["aaa","saa"];
+export const wrongWords = ["aaa","saa"];
