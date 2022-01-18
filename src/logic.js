@@ -8,11 +8,8 @@ import {datasets} from "./datasets.js"
 
 export const isSmartPhone = () => {
   // UserAgentからのスマホ判定
-  if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
-    return true;
-  } else {
-    return false;
-  }
+  const regexp = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  return (window.navigator.userAgent.search(regexp) !== -1);
 }
 
 
