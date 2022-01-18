@@ -6,12 +6,14 @@
 4.アルファベットのみが入力されているかどうか
 5.選択された問題の数だけ繰り返す
 6.点数を数える
-* 問題数を入力
 7.問題の報告をしたいときに、問題番号を覚えておく
+8 サニタイズする
 */
+import {typingInput,showQuestionNum} from "./index.js"
 import {datasets} from "./datasets.js"
 
-export const questionNum = 0;
+export let questionNum = 0; //問題数を保持
+export let numberMode = true; //
 
 export const isSmartPhone = () => {
   // UserAgentからのスマホ判定
@@ -21,13 +23,17 @@ export const isSmartPhone = () => {
 
 export const typingInputKeyPress = (e) => {
   if(e.key == 'Enter'){
-    const typingInputValue = typingInput.value
-    if(Number.isInteger(typingInputValue)){
-      questionNum = Number.isInteger(typingInputValue);
+    const typingInputValue = typingInput.value;
+
+    //問題数を保持しておく
+    if(Number(typingInputValue) && numberMode){
+      questionNum = Number(typingInputValue);
+      showQuestionNum.textContent = questionNum
+      numberMode = false;
+    }else{
+      alert("半角数字を入力してください");
     }
-    console.log(wrongAnswer[0]);
     console.log(questionNum);
-    console.log(typingInputValue);
   }
 }
 

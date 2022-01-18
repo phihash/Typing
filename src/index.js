@@ -4,6 +4,8 @@ import { wrongWords,isSmartPhone,typingInputKeyPress } from "./logic.js";
 
 export const typingInput = document.getElementById("typing-input");
 export const question = document.getElementById("question");
+export const showQuestionNum = document.getElementById("showQuestionNum");
+
 
 /**
  * リロードする
@@ -28,35 +30,12 @@ const showWrongWords = () =>{
  */
 
 
-
-const tapOrKeyPress = () => {
-  if(isSmartPhone()){
-    question.textContent = "適当にタップするとはじまります";
-  }else{
-    question.textContent = "適当にキーボードを押すとはじまります";
-  }
-}
-
-/**
- * タッチされたときの処理｀
- * 
- */
-
 const nextTyping = () => {
   if(startFlag){
 
   }
 }
 
-const startTyping = () => {
-  question.textContent = "はじまりました";
-  startFlag = true;
-}
-
-window.addEventListener("touchstart", startTyping);
-document.addEventListener("keydown", startTyping);
 
 
 typingInput.addEventListener('keypress',typingInputKeyPress);
-
-tapOrKeyPress();
