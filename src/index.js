@@ -38,14 +38,17 @@ const tapOrKeyPress = () => {
 
 /**
  * タッチされたときの処理｀
+ * 
  */
+
+const startTyping = () => {
+  question.textContent = "はじまりました"
+}
+
 window.addEventListener("touchstart", startTyping);
 
 document.addEventListener("keydown", startTyping);
 
-const startTyping = () => {
-    question.textContent = "はじまりました"
-}
 
 
 
@@ -57,6 +60,7 @@ export const typingInputKeyPress = (e) => {
   }
 }
 
-tapOrKeyPress();
 
 typingInput.addEventListener('keypress',typingInputKeyPress);
+
+tapOrKeyPress();
