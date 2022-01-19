@@ -39,3 +39,18 @@ const nextTyping = () => {
 
 
 typingInput.addEventListener('keypress',typingInputKeyPress);
+
+/**
+ * 選ばれた問題数を反映させる
+ * 
+ */
+export const showQuestionNumInDisplay = () => {
+  if(Number(typingInputValue) && numberMode){
+    questionNum = Number(typingInputValue);
+    showQuestionNum.textContent = questionNum;
+    numberMode = false;
+    typingMode = true;
+  }else if(typingMode == false){
+    alert("半角数字を入力してください");
+  }
+}
