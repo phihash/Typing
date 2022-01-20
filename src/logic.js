@@ -9,6 +9,7 @@
 */
 import {datasets} from "./datasets.js"
 import {questionNumber} from "./index.js"
+console.log("logicぁら");
 
 const includeNotANumber = (target) => {
   

@@ -16,21 +16,21 @@
   <div class="SiteWrapper">
     <header class="header">
        <h1 class="SiteTitle">Typing Score</h1>
-       <button class="settingButton" id="setting">設定</button>
+       <button class="settingButton" id="settingButton">設定</button>
     </header>
     <main>
       <div class="typingArea">
         <div class="questionArea">
           <p id="questionIdArea"></p>
-          <p id="questionSentenceArea"> 問題数を選択してからはじめてください</p>
+          <p class="questionSentenceArea" id="questionSentenceArea"> 問題数を選択してからはじめてください</p>
         </div>
         <input type="tel" class="numberArea" id="numberArea" max="10">
         <input type="text" placeholder="答えを入力" id="typingArea">
       </div>
       <!-- モーダル -->
-      <div class="overlay hidden"></div> <!-- overlay -->
-      <div class="modal hidden">
-        <button class="close-modal">&times;</button> <!--モーダル閉じb-->
+      <div class="hidden" id="overlay"></div> <!-- overlay -->
+      <div class="hidden" id="modal">
+        <button class="settingCloseButton" id="settingCloseButton">&times;</button> <!--モーダル閉じb-->
         <p>モダールウィンドウです。</p>
       </div>
       <!-- ここまで -->

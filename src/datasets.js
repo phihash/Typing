@@ -1,3 +1,5 @@
+"use strict";
+
 export const datasets = [
     {1:["貧血","anemia"]},
     {2:["食思不振","anorexia"]},
