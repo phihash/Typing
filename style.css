@@ -9,6 +9,7 @@
   color: #001116;
   background-color: #f2f2f2;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 a{
@@ -28,20 +29,23 @@ button{
   flex-direction: column;
   min-height: 100vh;
 }
-
-.header{
+.wrapper{
   width: 390px;
   margin: 0 auto;
+}
+
+.header{
   display: flex;
   justify-content: space-between;
   margin-top: 1.2rem;
   margin-bottom: 4.2rem;
 }
 .settingButton{
-  padding: 0.8rem 1.6rem;
+  padding: 0.8rem 1.8rem;
   border-radius: 1rem;
   background-color: white;
   box-shadow:  2px 5px 5px rgb(200, 197, 197);
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 .settingButton:hover{
@@ -50,17 +54,43 @@ button{
 }
 
 .SiteTitle{
-  padding-top: 0.1rem;
+  padding-top: 0.3rem;
 }
 
-@media screen and (min-width:648px) {
-  .header{
+@media screen and (min-width:720px) {
+  .wrapper{
     width: 1020px;
   }
 }
 
+
+.questionSentenceArea{
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.2rem;
+
+}
+
+.questionArea{
+  
+}
   /* background-color: #5B622E; */
 
+.numberArea{
+  display: block;
+  font-size: 1.8rem;
+  border-radius: 0.4rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  margin-top: 1.2rem;
+}
+
+.typingArea{
+  display: block;
+  font-size: 1.8rem;
+  border-radius: 0.4rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  margin-top: 1.2rem;
+
+}
 
 main{
   flex: 1;
