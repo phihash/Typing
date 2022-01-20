@@ -1,3 +1,7 @@
 export const createDom = (tag) => {
-  document.createElement(tag);
+  return document.createElement(tag);
+}
+
+export const removeAll = () => {
+  
 }
