@@ -8,23 +8,34 @@
   <link rel="stylesheet" href="style.css">
   <link rel="apple-touch-icon" href="src/apple-touch-icon.PNG">
   <link rel="icon" href="src/apple-touch-icon.PNG">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Oswald:wght@300;600;700&family=Yellowtail&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="SiteWrapper">
-    <div class="wrapper">
-       <h2>Typing Score</h2>
-       <p><small id="questionNumberArea">-</small>問</p>
-       <p><small id="getScoreArea">-</small>点</p>
-       <button id="setting">設定</button>
-    </div>
-    <main class="wrapper">
-      <div class="typing-area">
-        <p id="questionArea">問題数を選択してからはじめてください</p>
-        <input type="number" class="number-area" id="numberArea" name="tentacles"
-       min="10" max="100">
+    <header class="header">
+       <h1 class="SiteTitle">Typing Score</h1>
+       <button class="settingButton" id="setting">設定</button>
+    </header>
+    <main>
+      <div class="typingArea">
+        <div class="questionArea">
+          <p id="questionIdArea"></p>
+          <p id="questionSentenceArea"> 問題数を選択してからはじめてください</p>
+        </div>
+        <input type="tel" class="numberArea" id="numberArea" max="10">
         <input type="text" placeholder="答えを入力" id="typingArea">
       </div>
+      <!-- モーダル -->
+      <div class="overlay hidden"></div> <!-- overlay -->
+      <div class="modal hidden">
+        <button class="close-modal">&times;</button> <!--モーダル閉じb-->
+        <p>モダールウィンドウです。</p>
+      </div>
+      <!-- ここまで -->
     </main>
+
     <footer>
       ©2022 phihash
       <a href="https://twitter.com/untikun_bot" style="background-color: burlywood;">問題の報告をしたい</a>
