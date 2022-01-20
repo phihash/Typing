@@ -11,27 +11,10 @@
  * ランダムに問題数を選択する
  * 正解かどうかを判断する
 */
-import { settingButton,settingCloseButton,modal,overlay } from "./setting";
 export let questionNumber = 10; //デフォルト値
 export let remainingQuestionNumber = 10; //残りの問題数
 export const typingArea = document.getElementById("typingArea");
 export const questionNumberArea = document.getElementById("questionNumberArea");
-
-export const openModal = () => {
-  console.log("クリックされました");
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-};
-
-//modalとoverlayのhiddenクラスを追加する（modalとoverlayが見えないようにする）処理
-export const closeModal = () => {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-};
-
-//modalの開くボタンと閉じるボタンをクリックした時の処理
-settingButton.addEventListener("click", openModal);
-settingCloseButton.addEventListener("click", closeModal);
 
 typingArea.addEventListener("keypress",(e) => {
   if(e.key == "Enter"){
