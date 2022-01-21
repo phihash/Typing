@@ -9,7 +9,14 @@
 */
 import {datasets} from "./datasets.js"
 import {questionNumber} from "./index.js"
-console.log("logicぁら");
+
+export const createDom = (tag) => {
+  return document.createElement(tag);
+}
+
+export const removeAll = () => {
+
+}
 
 const includeNotANumber = (target) => {
   

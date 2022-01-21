@@ -30,22 +30,19 @@
     </main>
 <!-- ここからモーダルエリアです。 -->
 <div id="modal" aria-hidden="true" class="modal">
-    <div tabindex="-1" data-micromodal-close>
-      <div aria-modal="true" aria-labelledby="modal-title" >
+    <!-- <div tabindex="-1" data-micromodal-close> -->
           <p>Hello</p>
-          <input type="tel" class="numberArea" placeholder="数字のみ入力" id="numberArea" max="10">
-          <button aria-label="Close modal" data-micromodal-close>Close</button>
-       </div>
-    </div>
+          <p class="numberFormArea" id="numberFormArea">10</p>
+          <button class="settingCloseButton" aria-label="Close modal" data-micromodal-close>Close</button>
+    <!-- </div> -->
 </div>
 
     <footer>
-      ©2022 phihash
+      <p class="copyright"> ©2022 phihash</p>
       <a href="https://twitter.com/untikun_bot" style="background-color: burlywood;">問題の報告をしたい</a>
     </footer>
   </div>
   <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
   <script src="./dist/main.js"></script>
-  
 </body>
 </html>

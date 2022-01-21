@@ -17,7 +17,11 @@ export const typingArea = document.getElementById("typingArea");
 export const questionNumberArea = document.getElementById("questionNumberArea");
 
 
-MicroModal.init();
+MicroModal.init({
+  awaitOpenAnimation: true,
+});
+
+
 typingArea.addEventListener("keypress",(e) => {
   if(e.key == "Enter"){
     //数値以外が入力されていないかどうか

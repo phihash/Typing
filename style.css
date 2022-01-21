@@ -40,7 +40,7 @@ button{
   margin-top: 1.2rem;
   margin-bottom: 4.2rem;
 }
-.settingButton{
+.settingButton,.settingCloseButton{
   padding: 0.8rem 1.8rem;
   border-radius: 1rem;
   background-color: white;
@@ -48,7 +48,11 @@ button{
   font-family: 'Noto Sans JP', sans-serif;
 }
 
-.settingButton:hover{
+.settingCloseButton{
+  font-size: 1.2rem;
+}
+
+.settingButton:hover,.settingCloseButton:hover{
   opacity: 0.8;
   box-shadow:  1px 3px 3px rgb(200, 197, 197);
 }
@@ -76,15 +80,6 @@ button{
 }
   /* background-color: #5B622E; */
 
-.numberArea{
-  display: block;
-  font-size: 1.8rem;
-  border-radius: 0.4rem;
-  font-family: 'Noto Sans JP', sans-serif;
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 1.6rem;
-}
 
 .typingArea{
   display: block;
@@ -104,7 +99,15 @@ main{
 /* モーダル用 */
 .modal {
   display: none;
-  background-color: blue;
+  position: fixed;
+  top:15%;
+  left: 0;
+  right:0;
+  bottom: 12%;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 1rem;
+  box-shadow:  4px 7px 4px 7px rgb(200, 197, 197);
 }
 .modal.is-open {
   display: block;
