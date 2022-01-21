@@ -21,15 +21,23 @@
     <main>
       <div class="typingArea wrapper">
         <div class="questionArea">
-          <p id="questionIdArea"></p>
-          <p class="questionSentenceArea" id="questionSentenceArea"> 問題数を選択してからはじめてください</p>
-        </div>
-          <input type="tel" class="numberArea" placeholder="数字のみ入力" id="numberArea" max="10">
+          <p class="questionSentenceArea" id="questionSentenceArea"><small id="questionIdArea" class="questionIdArea">1 </small>  問題数を選択してからはじめてください</p>
           <input type="text" class="typingArea" placeholder="答えを入力" id="typingArea">
+        </div>          
       </div>
       
       <!-- ここまで -->
     </main>
+<!-- ここからモーダルエリアです。 -->
+<div id="modal" aria-hidden="true" class="modal">
+    <div tabindex="-1" data-micromodal-close>
+      <div aria-modal="true" aria-labelledby="modal-title" >
+          <p>Hello</p>
+          <input type="tel" class="numberArea" placeholder="数字のみ入力" id="numberArea" max="10">
+          <button aria-label="Close modal" data-micromodal-close>Close</button>
+       </div>
+    </div>
+</div>
 
     <footer>
       ©2022 phihash
@@ -38,5 +46,6 @@
   </div>
   <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
   <script src="./dist/main.js"></script>
+  
 </body>
 </html>
