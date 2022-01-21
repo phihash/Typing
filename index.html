@@ -16,7 +16,7 @@
   <div class="SiteWrapper">
     <header class="header wrapper">
        <h1 class="SiteTitle">Typing Score</h1>
-       <button class="settingButton" id="settingButton">設定</button>
+       <button class="settingButton" id="settingButton" data-micromodal-trigger="modal" >設定</button>
     </header>
     <main>
       <div class="typingArea wrapper">
@@ -28,9 +28,8 @@
         <input type="text" class="typingArea" placeholder="答えを入力" id="typingArea">
       </div>
       <!-- モーダル -->
-      <div class="overlay hidden" id="overlay"></div> <!-- overlay -->
-      <div class="modal hidden" id="modal">
-        <button class="settingCloseButton" id="settingCloseButton">&times;Close</button> <!--モーダル閉じb-->
+      <!-- <div class="overlay hidden" id="overlay"></div> overlay -->
+      <div class="modal hidden" id="modal" aria-hidden="false">
         <p>モダールウィンドウです。</p>
         <p>報告する</p>
       </div>
@@ -42,6 +41,7 @@
       <a href="https://twitter.com/untikun_bot" style="background-color: burlywood;">問題の報告をしたい</a>
     </footer>
   </div>
+  <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
   <script src="./dist/main.js"></script>
 </body>
 </html>

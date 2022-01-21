@@ -16,11 +16,13 @@ export let remainingQuestionNumber = 10; //残りの問題数
 export const typingArea = document.getElementById("typingArea");
 export const questionNumberArea = document.getElementById("questionNumberArea");
 
+
+MicroModal.init();
 typingArea.addEventListener("keypress",(e) => {
   if(e.key == "Enter"){
     //数値以外が入力されていないかどうか
     console.log("Enterされました")
-
+    
  
     //数値以外
 
