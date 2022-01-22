@@ -103,12 +103,19 @@ main{
   top:15%;
   left: 0;
   right:0;
-  bottom: 12%;
-  width: 60%;
+  bottom: 16%;
+  width: 74%;
   margin: 0 auto;
   border-radius: 1rem;
   box-shadow:  4px 7px 4px 7px rgb(200, 197, 197);
 }
+
+.numberFormArea{
+  font-size: 2rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
 .modal.is-open {
   display: block;
 }
