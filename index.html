@@ -21,19 +21,32 @@
     <main>
       <div class="typingArea wrapper">
         <div class="questionArea">
-          <p class="questionSentenceArea" id="questionSentenceArea"><small id="questionIdArea" class="questionIdArea">1 </small>  問題数を選択してからはじめてください</p>
+          <p class="questionSentenceArea" id="questionSentenceArea"><small id="questionIdArea" class="questionIdArea"></small>設定してから始めてください</p>
           <input type="text" class="typingArea" placeholder="答えを入力" id="typingArea">
         </div>          
       </div>
       
       <!-- ここまで -->
     </main>
+
 <!-- ここからモーダルエリアです。 -->
 <div id="modal" aria-hidden="true" class="modal">
     <!-- <div tabindex="-1" data-micromodal-close> -->
-          <p>Hello</p>
-          <p class="numberFormArea" id="numberFormArea">10</p>
-          <button class="settingCloseButton" aria-label="Close modal" data-micromodal-close>Close</button>
+            <div class="numberSettingArea">
+              <button class="plusButton" id="plusButton">+</button>
+              <p class="numberTextArea" id="numberTextArea">10</p>
+              <button class="minusButton" id="minusButton">ー</button>
+            </div>
+            <div class="IncreasingSettingArea">
+              <button class="plusButton" id="plusButton">+</button>
+              <p class="numberTextArea">5ずつ増えます</p>
+              <button class="minusButton" id="minusButton">ー</button>
+            </div>
+            <div class="EJSettingArea">
+              <button class="jToEButton selectedButton" id="jToEButton">和→英</button>
+              <button class="eToJButton" id="eToJButton">英→和</button>            
+            </div>
+          <button class="settingCloseButton" aria-label="Close modal" data-micromodal-close>Save</button>
     <!-- </div> -->
 </div>
 

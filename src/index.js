@@ -10,6 +10,7 @@
  * リロードする機能する
  * ランダムに問題数を選択する
  * 正解かどうかを判断する
+ *和英設定
 */
 export let questionNumber = 10; //デフォルト値
 export let remainingQuestionNumber = 10; //残りの問題数

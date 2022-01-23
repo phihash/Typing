@@ -24,6 +24,11 @@ button{
   font-weight: 600;
 }
 
+button:hover{
+  opacity: 0.8;
+  box-shadow:  1px 3px 3px rgb(200, 197, 197);
+}
+
 .SiteWrapper{
   display: flex;
   flex-direction: column;
@@ -40,7 +45,7 @@ button{
   margin-top: 1.2rem;
   margin-bottom: 4.2rem;
 }
-.settingButton,.settingCloseButton{
+.settingButton,.settingCloseButton,.jToEButton,.eToJButton,.minusButton,.plusButton{
   padding: 0.8rem 1.8rem;
   border-radius: 1rem;
   background-color: white;
@@ -48,8 +53,28 @@ button{
   font-family: 'Noto Sans JP', sans-serif;
 }
 
+.minusButton,.plusButton{
+  padding: 0rem 0.5rem;
+  font-size: 1.8rem;
+  border-radius: 0.5rem;
+}
+
+.jToEButton,.eToJButton{
+  width:90%;
+  margin: 0 auto;
+  margin-top: 1.6rem;
+}
+
+.minusButton{
+  font-size: 1.2rem;
+}
+
+
 .settingCloseButton{
   font-size: 1.2rem;
+  display: block;
+  margin: 0 auto;
+  margin-top: 2rem;
 }
 
 .settingButton:hover,.settingCloseButton:hover{
@@ -58,7 +83,7 @@ button{
 }
 
 .SiteTitle{
-  padding-top: 0.3rem;
+  padding-top: 0.4rem;
 }
 
 @media screen and (min-width:720px) {
@@ -100,7 +125,7 @@ main{
 .modal {
   display: none;
   position: fixed;
-  top:15%;
+  top:12%;
   left: 0;
   right:0;
   bottom: 16%;
@@ -110,12 +135,31 @@ main{
   box-shadow:  4px 7px 4px 7px rgb(200, 197, 197);
 }
 
-.numberFormArea{
-  font-size: rem;
-  width: 80%;
-  margin: 0 auto;
+.numberTextArea{
+  font-size: 1.6rem;
+  width: 60%;
+  text-align: center;
 }
+
+
 
 .modal.is-open {
   display: block;
+}
+
+.selectedButton{
+  color: #f2f2f2 ;
+  background-color: blue;
+}
+
+.numberSettingArea,.IncreasingSettingArea{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.EJSettingArea{
+  display: flex;
+  flex-direction: column;
 }
