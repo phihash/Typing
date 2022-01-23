@@ -12,6 +12,7 @@
  * 正解かどうかを判断する
  *和英設定
 */
+import {datasets} from "./datasets.js"
 export let questionNumber = 10; //デフォルト値
 export let increase = 5; //デフォルト値
 export let remainingQuestionNumber = 10; //残りの問題数
@@ -27,7 +28,9 @@ export const minusButton = document.getElementById("minusButton");
 export const plusButton = document.getElementById("plusButton");
 export const numberText = document.getElementById("numberText");
 export const increasingNumberText = document.getElementById("increasingNumberText");
-export let EJMode = "EtoJ";
+export const questionSentence = document.getElementById("questionSentence");
+export const questionId = document.getElementById("questionId");
+export let mode = "EtoJ";
 
 
 MicroModal.init({
@@ -81,7 +84,17 @@ jToEButton.addEventListener("click",() => {
 
 const startTyping = () => {
   //問題数を設定
-  
+  if(document.getElementsByClassName("selectedButton").item(0).id == "eToJButton"){
+    mode = "EtoJ";
+    console.log("EtoJ");
+  }else{
+    mode = "JtoE";
+    console.log("JtoE");
+
+  }
+  console.log(document.getElementsByClassName("selectedButton").item(0).id);
+  questionSentence.textContent = datasets[0]["1"][0];
+  questionId.textContent = datasets[0];
   console.log(questionNumber);
 }
 
@@ -93,8 +106,9 @@ settingSaveButton.addEventListener("click",startTyping);
 typingArea.addEventListener("keypress",(e) => {
   if(e.key == "Enter"){
     //数値以外が入力されていないかどうか
-    console.log("Enterされました")
-    
+    console.log("Enterされました");
+    typingArea.value == "";
+    // questionSentence;
  
     //数値以外
 
