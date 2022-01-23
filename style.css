@@ -42,10 +42,10 @@ button:hover{
 .header{
   display: flex;
   justify-content: space-between;
-  margin-top: 1.2rem;
+  margin-top: 1.6rem;
   margin-bottom: 4.2rem;
 }
-.settingButton,.settingCloseButton,.jToEButton,.eToJButton,.minusButton,.plusButton{
+.settingButton,.settingSaveButton,.jToEButton,.eToJButton,.minusButton,.plusButton{
   padding: 0.8rem 1.8rem;
   border-radius: 1rem;
   background-color: white;
@@ -70,14 +70,14 @@ button:hover{
 }
 
 
-.settingCloseButton{
+.settingSaveButton{
   font-size: 1.2rem;
   display: block;
   margin: 0 auto;
   margin-top: 2rem;
 }
 
-.settingButton:hover,.settingCloseButton:hover{
+.settingButton:hover,.settingSaveButton:hover{
   opacity: 0.8;
   box-shadow:  1px 3px 3px rgb(200, 197, 197);
 }
@@ -136,7 +136,8 @@ main{
 }
 
 .numberTextArea{
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  padding-top: 0.3rem;
   width: 60%;
   text-align: center;
 }
@@ -155,11 +156,15 @@ main{
 .numberSettingArea,.IncreasingSettingArea{
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1.8rem;
+  margin-bottom: 1.8rem;
 }
 
 .EJSettingArea{
   display: flex;
   flex-direction: column;
+}
+
+.footer{
+  padding-bottom: 2rem;
 }

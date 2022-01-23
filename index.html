@@ -32,27 +32,29 @@
 <!-- ここからモーダルエリアです。 -->
 <div id="modal" aria-hidden="true" class="modal">
     <!-- <div tabindex="-1" data-micromodal-close> -->
+            <p>問題数を設定します</p>
             <div class="numberSettingArea">
               <button class="plusButton" id="plusButton">+</button>
-              <p class="numberTextArea" id="numberTextArea">10</p>
+              <p class="numberTextArea" id="numberTextArea"><span id="numberText">10</span>問出題します</p>
               <button class="minusButton" id="minusButton">ー</button>
             </div>
+            <p>増減値を設定します</p>
             <div class="IncreasingSettingArea">
               <button class="plusButton" id="plusButton">+</button>
-              <p class="numberTextArea">5ずつ増えます</p>
+              <p class="numberTextArea"><span id="increasingNumberText">5</span>問ずつ増減します</p>
               <button class="minusButton" id="minusButton">ー</button>
             </div>
             <div class="EJSettingArea">
               <button class="jToEButton selectedButton" id="jToEButton">和→英</button>
               <button class="eToJButton" id="eToJButton">英→和</button>            
             </div>
-          <button class="settingCloseButton" aria-label="Close modal" data-micromodal-close>Save</button>
+          <button class="settingSaveButton" id="settingSaveButton" aria-label="Close modal" data-micromodal-close>Save</button>
     <!-- </div> -->
 </div>
 
-    <footer>
+    <footer class="footer">
       <p class="copyright"> ©2022 phihash</p>
-      <a href="https://twitter.com/untikun_bot" style="background-color: burlywood;">問題の報告をしたい</a>
+      <a href="https://twitter.com/untikun_bot" >問題の報告をしたい</a>
     </footer>
   </div>
   <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
