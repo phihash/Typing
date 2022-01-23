@@ -10,6 +10,7 @@
   background-color: #f2f2f2;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  vertical-align: bottom;
 }
 
 a{
@@ -45,7 +46,7 @@ button:hover{
   margin-top: 1.6rem;
   margin-bottom: 4.2rem;
 }
-.settingButton,.settingSaveButton,.jToEButton,.eToJButton,.minusButton,.plusButton{
+.settingButton,.settingSaveButton,.jToEButton,.eToJButton,.minusButton,.plusButton,.reloadButton{
   padding: 0.8rem 1.8rem;
   border-radius: 1rem;
   background-color: white;
@@ -71,16 +72,22 @@ button:hover{
 
 
 .settingSaveButton{
+  padding: 0.8rem 1.8rem;
   font-size: 1.2rem;
-  display: block;
-  margin: 0 auto;
-  margin-top: 2rem;
 }
 
-.settingButton:hover,.settingSaveButton:hover{
-  opacity: 0.8;
-  box-shadow:  1px 3px 3px rgb(200, 197, 197);
+.reloadButton{
+  font-size: 1.2rem;
+  color:#f2f2f2;
+  background-color: rgb(117, 117, 202);
 }
+
+.buttonArea{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+
 
 .SiteTitle{
   padding-top: 0.4rem;
@@ -128,7 +135,7 @@ main{
   top:12%;
   left: 0;
   right:0;
-  bottom: 16%;
+  bottom: 14%;
   width: 74%;
   margin: 0 auto;
   border-radius: 1rem;
@@ -156,13 +163,26 @@ main{
 .numberSettingArea,.IncreasingSettingArea{
   display: flex;
   justify-content: center;
-  margin-top: 1.8rem;
+  margin-top: 1.6rem;
   margin-bottom: 1.8rem;
 }
 
 .EJSettingArea{
   display: flex;
   flex-direction: column;
+}
+
+.verbose{
+  display: flex;
+  width: 76%;
+  margin: 0 auto;
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 1.8rem;
+}
+
+.material-icons {
+  padding-right: 1rem;
 }
 
 .footer{

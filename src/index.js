@@ -19,26 +19,40 @@ export const questionNumberArea = document.getElementById("questionNumberArea");
 export const settingSaveButton = document.getElementById("settingSaveButton");
 export const eToJButton = document.getElementById("eToJButton");
 export const jToEButton = document.getElementById("jToEButton");
+export const reloadButton = document.getElementById("reloadButton");
+export let EJMode = "EtoJ";
 
 
 MicroModal.init({
   awaitOpenAnimation: true,
 });
 
-settingSaveButton.addEventListener("click",startTyping);
-
-eToJButton.addEventListener("click",changeButtonColor);
-jToEButton.addEventListener("click",changeButtonColor);
-
-const changeButtonColor = () => {
-
+const doReload = () => {
+  document.location.reload();
 }
+
+reloadButton.addEventListener("click",doReload);
+
+eToJButton.addEventListener("click",() => {
+  eToJButton.classList.add("selectedButton");
+  jToEButton.classList.remove("selectedButton");
+
+});
+jToEButton.addEventListener("click",() => {
+  jToEButton.classList.add("selectedButton");
+  eToJButton.classList.remove("selectedButton");
+});
 
 const startTyping = () => {
   //問題数を設定
   
   console.log(questionNumber);
 }
+
+settingSaveButton.addEventListener("click",startTyping);
+
+
+
 
 typingArea.addEventListener("keypress",(e) => {
   if(e.key == "Enter"){

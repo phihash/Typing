@@ -9,6 +9,7 @@
   <link rel="apple-touch-icon" href="src/apple-touch-icon.PNG">
   <link rel="icon" href="src/apple-touch-icon.PNG">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,300&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
@@ -32,23 +33,26 @@
 <!-- ここからモーダルエリアです。 -->
 <div id="modal" aria-hidden="true" class="modal">
     <!-- <div tabindex="-1" data-micromodal-close> -->
-            <p>問題数を設定します</p>
+            <p class="verbose"><span class="material-icons">start</span>問題数を設定します</p>
             <div class="numberSettingArea">
               <button class="plusButton" id="plusButton">+</button>
               <p class="numberTextArea" id="numberTextArea"><span id="numberText">10</span>問出題します</p>
               <button class="minusButton" id="minusButton">ー</button>
             </div>
-            <p>増減値を設定します</p>
+            <p class="verbose"><span class="material-icons">thumbs_up_down</span>増減値を設定します</p>
             <div class="IncreasingSettingArea">
               <button class="plusButton" id="plusButton">+</button>
               <p class="numberTextArea"><span id="increasingNumberText">5</span>問ずつ増減します</p>
               <button class="minusButton" id="minusButton">ー</button>
             </div>
             <div class="EJSettingArea">
-              <button class="jToEButton selectedButton" id="jToEButton">和→英</button>
-              <button class="eToJButton" id="eToJButton">英→和</button>            
+              <button class="eToJButton selectedButton" id="eToJButton">英→和</button>   
+              <button class="jToEButton" id="jToEButton">和→英</button>
             </div>
-          <button class="settingSaveButton" id="settingSaveButton" aria-label="Close modal" data-micromodal-close>Save</button>
+            <div class="buttonArea">
+               <button class="reloadButton" id="reloadButton">Reload</button>
+              <button class="settingSaveButton" id="settingSaveButton" aria-label="Close modal" data-micromodal-close>Save</button>
+            </div>     
     <!-- </div> -->
 </div>
 
