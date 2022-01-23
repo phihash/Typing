@@ -13,25 +13,61 @@
  *和英設定
 */
 export let questionNumber = 10; //デフォルト値
+export let increase = 5; //デフォルト値
 export let remainingQuestionNumber = 10; //残りの問題数
 export const typingArea = document.getElementById("typingArea");
 export const questionNumberArea = document.getElementById("questionNumberArea");
 export const settingSaveButton = document.getElementById("settingSaveButton");
 export const eToJButton = document.getElementById("eToJButton");
 export const jToEButton = document.getElementById("jToEButton");
-export const reloadButton = document.getElementById("reloadButton");
+export const closeButton = document.getElementById("closeButton");
+export const plusIncreaseButton = document.getElementById("plusIncreaseButton");
+export const minusIncreaseButton = document.getElementById("minusIncreaseButton");
+export const minusButton = document.getElementById("minusButton");
+export const plusButton = document.getElementById("plusButton");
+export const numberText = document.getElementById("numberText");
+export const increasingNumberText = document.getElementById("increasingNumberText");
 export let EJMode = "EtoJ";
 
 
 MicroModal.init({
   awaitOpenAnimation: true,
+  disableScroll:true
 });
 
-const doReload = () => {
-  document.location.reload();
-}
+plusButton.addEventListener("click",() => {
+  questionNumber+=increase;
+  console.log(questionNumber);
+  numberText.textContent = questionNumber;
+});
 
-reloadButton.addEventListener("click",doReload);
+plusIncreaseButton.addEventListener("click",() => {
+  increase++;
+  console.log(increase+"増減値");
+  increasingNumberText.textContent = increase;
+});
+
+minusButton.addEventListener("click",() => {
+  questionNumber-=increase;
+  if(questionNumber < 0){
+    alert("これ以上マイナスボタンは押せません");
+    questionNumber+=increase;
+    return;
+  }
+  console.log(questionNumber);
+  numberText.textContent = questionNumber;
+});
+
+minusIncreaseButton.addEventListener("click",() => {
+  increase--;
+  if(increase< 0){
+    alert("これ以上マイナスボタンは押せません");
+    increase++;
+    return;
+  }
+  console.log(increase+"増減値");
+  increasingNumberText.textContent = increase;
+});
 
 eToJButton.addEventListener("click",() => {
   eToJButton.classList.add("selectedButton");
