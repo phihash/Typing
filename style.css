@@ -155,7 +155,7 @@ main{
   display: block;
 }
 
-.selectedButton{
+.selectedButton,.minusButton:active,.plusButton:active{
   color: #f2f2f2 ;
   background-color: blue;
 }
@@ -181,9 +181,11 @@ main{
   margin-top: 1.8rem;
 }
 
+
 .material-icons {
   padding-right: 1rem;
 }
+
 
 .footer{
   padding-bottom: 2rem;
