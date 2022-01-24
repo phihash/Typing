@@ -10,7 +10,7 @@
   background-color: #f2f2f2;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 
 a{
@@ -36,7 +36,7 @@ button:hover{
   min-height: 100vh;
 }
 .wrapper{
-  width: 390px;
+  width: 380px;
   margin: 0 auto;
 }
 
@@ -99,6 +99,10 @@ button:hover{
   }
 }
 
+.questionSentence{
+  font-size: 1.4rem;
+  font-weight: 800;
+}
 
 .questionSentenceArea{
   font-family: 'Noto Sans JP', sans-serif;
@@ -108,7 +112,9 @@ button:hover{
 }
 
 .questionId{
-  font-size: 1.4rem;
+  display: block;
+  padding-bottom: 1rem;
+  font-size: 1.6rem;
 }
 
   /* background-color: #5B622E; */
