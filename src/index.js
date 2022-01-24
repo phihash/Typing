@@ -1,7 +1,5 @@
 "use strict";
-
 /** 
- * 問題数を選択する
  * 間違えた問題を表示する
  * 点数を計算する
  * 割合を計算する
@@ -13,6 +11,7 @@
  *和英設定
 */
 import {datasets} from "./datasets.js"
+import {shuffle} from "./function.js"
 export let questionNumber = 10; //デフォルト値
 export let increase = 5; //デフォルト値
 export let remainingQuestionNumber = 10; //残りの問題数
@@ -31,7 +30,7 @@ export const increasingNumberText = document.getElementById("increasingNumberTex
 export const questionSentence = document.getElementById("questionSentence");
 export const questionId = document.getElementById("questionId");
 export let mode = "EtoJ";
-
+export let wrongAnswers = [];
 
 MicroModal.init({
   awaitOpenAnimation: true,
@@ -40,13 +39,11 @@ MicroModal.init({
 
 plusButton.addEventListener("click",() => {
   questionNumber+=increase;
-  console.log(questionNumber);
   numberText.textContent = questionNumber;
 });
 
 plusIncreaseButton.addEventListener("click",() => {
   increase++;
-  console.log(increase+"増減値");
   increasingNumberText.textContent = increase;
 });
 
@@ -57,7 +54,6 @@ minusButton.addEventListener("click",() => {
     questionNumber+=increase;
     return;
   }
-  console.log(questionNumber);
   numberText.textContent = questionNumber;
 });
 
@@ -68,20 +64,28 @@ minusIncreaseButton.addEventListener("click",() => {
     increase++;
     return;
   }
-  console.log(increase+"増減値");
   increasingNumberText.textContent = increase;
 });
 
 eToJButton.addEventListener("click",() => {
   eToJButton.classList.add("selectedButton");
   jToEButton.classList.remove("selectedButton");
-
 });
+
 jToEButton.addEventListener("click",() => {
   jToEButton.classList.add("selectedButton");
   eToJButton.classList.remove("selectedButton");
 });
 
+
+
+const selectingQuestion = (arr) => {
+  arr = shuffle(arr);
+  for(let i=0;i < questionNumber ;i++){
+    questionSentence.textContent = Object.values(arr[i])[0][0];
+    questionId.textContent = Object.keys(arr[i]);
+  }
+}
 const startTyping = () => {
   //問題数を設定
   if(document.getElementsByClassName("selectedButton").item(0).id == "eToJButton"){
@@ -90,12 +94,10 @@ const startTyping = () => {
   }else{
     mode = "JtoE";
     console.log("JtoE");
-
   }
+  selectingQuestion(datasets);
+
   console.log(document.getElementsByClassName("selectedButton").item(0).id);
-  questionSentence.textContent = datasets[0]["1"][0];
-  questionId.textContent = datasets[0];
-  console.log(questionNumber);
 }
 
 settingSaveButton.addEventListener("click",startTyping);
@@ -103,19 +105,16 @@ settingSaveButton.addEventListener("click",startTyping);
 
 
 
-typingArea.addEventListener("keypress",(e) => {
-  if(e.key == "Enter"){
-    //数値以外が入力されていないかどうか
-    console.log("Enterされました");
-    typingArea.value == "";
-    // questionSentence;
+// typingArea.addEventListener("keypress",(e) => {
+//   if(e.key == "Enter"){
+//     //数値以外が入力されていないかどうか
+//     console.log("Enterされました");
+//     typingArea.value == "";
+//     // questionSentence;
  
-    //数値以外
+//     //数値以外
 
-    //
+//     //
 
-
-
-
-  }
-})
+//   }
+// })

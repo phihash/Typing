@@ -10,6 +10,11 @@
 import {datasets} from "./datasets.js"
 import {questionNumber} from "./index.js"
 
+export const shuffle = (array) => {
+  array.sort(() => Math.random() - 0.5);
+  return array;
+}
+
 export const createDom = (tag) => {
   return document.createElement(tag);
 }
