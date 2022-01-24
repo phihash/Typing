@@ -15,6 +15,15 @@ export const shuffle = (array) => {
   return array;
 }
 
+export const modeCheck = (str) => {
+  if(document.getElementsByClassName("selectedButton").item(0).id == "eToJButton"){
+    str = "EtoJ";
+  }else{
+    str = "JtoE";
+  }
+  return str;
+} 
+
 export const createDom = (tag) => {
   return document.createElement(tag);
 }
@@ -26,17 +35,12 @@ export const removeAll = () => {
 const includeNotANumber = (target) => {
   
 }
-
-const judgeIsNumber = (target) => {
-  console.log(target);
-  if(!Number.isNaN(parseInt(target))){
-    return true;
-  }else{
-    return false;
-  }
-}
-
-const judgeCorrect = () => {
+/**
+ * 入力された解答と答えが一致しているかどうかを判断する
+ * @param {str} mode
+ * @param {Number} number //とけたらそのまま、間違えたら減らす 
+ */
+export const judgeCorrect = (mode,number) => {
 
 }
 
@@ -48,12 +52,13 @@ const calculateScore = () => {
 
 }
 
-const doReload = () => {
-  window.location.reload();
-}
-
-const selectQuestion = () => {
-  datasets
+export const selectingQuestion = (arr) => {
+  let selectedQuestion = [];
+  arr = shuffle(arr);
+  for(let i=0;i < questionNumber ;i++){
+    selectedQuestion.push(arr[i]);
+  }
+  return selectedQuestion;
 }
 
 const storeWrongQuestion = () => {

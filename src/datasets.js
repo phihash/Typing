@@ -11,4 +11,7 @@ export const datasets = [
     {"08":["関節炎","arthritis"]},
     {"09":["頭蓋咽頭腫","craniopharyngioma"]},
     {"10":["脳動脈瘤","cerebral aneurysm"]},
+    {"11":["認知症","dementia"]},
+    {"12":["心筋炎","myocarditis"]},
+    {"13":["胆嚢炎","cholecystitis"]},
 ];

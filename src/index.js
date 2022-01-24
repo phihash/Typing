@@ -1,120 +1,84 @@
 "use strict";
-/** 
- * 間違えた問題を表示する
- * 点数を計算する
- * 割合を計算する
- * Tweet機能
- * 報告する機能
- * リロードする機能する
- * ランダムに問題数を選択する
- * 正解かどうかを判断する
- *和英設定
+/**  間違え問題表示 * 点数を計算 * 割合を計算 * Tweet * 報告 * 正解かどうか判断* サニタイズフォームクリア
 */
 import {datasets} from "./datasets.js"
-import {shuffle} from "./function.js"
+import {modeCheck, selectingQuestion,judgeCorrect} from "./function.js"
 export let questionNumber = 10; //デフォルト値
 export let increase = 5; //デフォルト値
-export let remainingQuestionNumber = 10; //残りの問題数
+export let solvedQuestionNumber = 0; //解けた問題の数
+export let remainingQuestionNumber = 10; //解けた問題の数
 export const typingArea = document.getElementById("typingArea");
 export const questionNumberArea = document.getElementById("questionNumberArea");
 export const settingSaveButton = document.getElementById("settingSaveButton");
 export const eToJButton = document.getElementById("eToJButton");
 export const jToEButton = document.getElementById("jToEButton");
 export const closeButton = document.getElementById("closeButton");
-export const plusIncreaseButton = document.getElementById("plusIncreaseButton");
-export const minusIncreaseButton = document.getElementById("minusIncreaseButton");
 export const minusButton = document.getElementById("minusButton");
 export const plusButton = document.getElementById("plusButton");
 export const numberText = document.getElementById("numberText");
-export const increasingNumberText = document.getElementById("increasingNumberText");
 export const questionSentence = document.getElementById("questionSentence");
 export const questionId = document.getElementById("questionId");
 export let mode = "EtoJ";
+export let questions = [];
 export let wrongAnswers = [];
+export let questionIndex = 0;
 
 MicroModal.init({
   awaitOpenAnimation: true,
   disableScroll:true
 });
-
+/* イベントリスナー */
 plusButton.addEventListener("click",() => {
   questionNumber+=increase;
   numberText.textContent = questionNumber;
 });
-
-plusIncreaseButton.addEventListener("click",() => {
-  increase++;
-  increasingNumberText.textContent = increase;
-});
-
 minusButton.addEventListener("click",() => {
   questionNumber-=increase;
-  if(questionNumber < 0){
+  if(questionNumber < 5){
     alert("これ以上マイナスボタンは押せません");
     questionNumber+=increase;
     return;
   }
   numberText.textContent = questionNumber;
 });
-
-minusIncreaseButton.addEventListener("click",() => {
-  increase--;
-  if(increase< 0){
-    alert("これ以上マイナスボタンは押せません");
-    increase++;
-    return;
-  }
-  increasingNumberText.textContent = increase;
-});
-
 eToJButton.addEventListener("click",() => {
   eToJButton.classList.add("selectedButton");
   jToEButton.classList.remove("selectedButton");
 });
-
 jToEButton.addEventListener("click",() => {
   jToEButton.classList.add("selectedButton");
   eToJButton.classList.remove("selectedButton");
 });
 
-
-
-const selectingQuestion = (arr) => {
-  arr = shuffle(arr);
-  for(let i=0;i < questionNumber ;i++){
-    questionSentence.textContent = Object.values(arr[i])[0][0];
-    questionId.textContent = Object.keys(arr[i]);
-  }
-}
 const startTyping = () => {
-  //問題数を設定
-  if(document.getElementsByClassName("selectedButton").item(0).id == "eToJButton"){
-    mode = "EtoJ";
-    console.log("EtoJ");
-  }else{
-    mode = "JtoE";
-    console.log("JtoE");
-  }
-  selectingQuestion(datasets);
-
-  console.log(document.getElementsByClassName("selectedButton").item(0).id);
-}
+  //問題数を設定  
+  remainingQuestionNumber = questionNumber;
+  questions = selectingQuestion(datasets); //問題を選択する
+  mode = modeCheck(mode);//モード選択する
+    if(mode == "JtoE"){
+        questionSentence.textContent = Object.values(questions[questionIndex])[0][0];
+        questionId.textContent = Object.keys(questions[questionIndex]);
+    }else{
+        questionSentence.textContent = Object.values(questions[questionIndex])[0][1];
+         questionId.textContent = Object.keys(questions[questionIndex]);
+    }
+ }
 
 settingSaveButton.addEventListener("click",startTyping);
 
+typingArea.addEventListener("keypress",(e) => {
+  if(e.key == "Enter"){
+    //数値以外が入力されていないかどうか
+    console.log("Enterされました");
+    // questionSentence;
+    //数値以外
+    //合ってるかの処理
+    judgeCorrect(mode,);
+    remainingQuestionNumber--;//問題解くたび減らす
 
 
+    questionIndex++;//問題解くたび増やす
+    //
 
-// typingArea.addEventListener("keypress",(e) => {
-//   if(e.key == "Enter"){
-//     //数値以外が入力されていないかどうか
-//     console.log("Enterされました");
-//     typingArea.value == "";
-//     // questionSentence;
- 
-//     //数値以外
-
-//     //
-
-//   }
-// })
+  }
+})
