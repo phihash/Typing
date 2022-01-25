@@ -52,7 +52,7 @@ jToEButton.addEventListener("click",() => {
 
 const startTyping = () => {
   //問題数を設定  
-  remainingQuestionNumber = questionNumber;
+  remainingQuestionNumber = questionNumber;//残り問題数に選択した問題数w
   questions = selectingQuestion(datasets); //問題を選択する
   mode = modeCheck(mode);//モード選択する
     if(mode == "JtoE"){
@@ -73,15 +73,10 @@ typingArea.addEventListener("keypress",(e) => {
       alert("設定してください");
       return;
     }
-    //数値以外が入力されていないかどうか
     console.log("Enterされました");
-    // questionSentence;
-    //数値以外
-    //合ってるかの処理
     judgeCorrect(mode,typingArea.value,Object.values(questions[questionIndex]),questionIndex);
+
     remainingQuestionNumber--;//問題解くたび減らす
-
-
     questionIndex++;//問題解くたび増やす
     //
     typingArea.value = null;
