@@ -62,23 +62,35 @@ const startTyping = () => {
         questionSentence.textContent = Object.values(questions[questionIndex])[0][1];
          questionId.textContent = Object.keys(questions[questionIndex]);
     }
+
  }
 
 settingSaveButton.addEventListener("click",startTyping);
 
 typingArea.addEventListener("keypress",(e) => {
   if(e.key == "Enter"){
+    if(questions.length == 0){
+      alert("設定してください");
+      return;
+    }
     //数値以外が入力されていないかどうか
     console.log("Enterされました");
     // questionSentence;
     //数値以外
     //合ってるかの処理
-    judgeCorrect(mode,);
+    judgeCorrect(mode,typingArea.value,Object.values(questions[questionIndex]),questionIndex);
     remainingQuestionNumber--;//問題解くたび減らす
 
 
     questionIndex++;//問題解くたび増やす
     //
-
+    typingArea.value = null;
+      if(mode == "JtoE"){
+        questionSentence.textContent = Object.values(questions[questionIndex])[0][0];
+        questionId.textContent = Object.keys(questions[questionIndex]);
+    }else{
+        questionSentence.textContent = Object.values(questions[questionIndex])[0][1];
+        questionId.textContent = Object.keys(questions[questionIndex]);
+    }
   }
 })

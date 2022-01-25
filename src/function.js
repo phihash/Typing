@@ -8,7 +8,7 @@
  * 正解かどうかを判断する
 */
 import {datasets} from "./datasets.js"
-import {questionNumber} from "./index.js"
+import {questionNumber,wrongAnswers} from "./index.js"
 
 export const shuffle = (array) => {
   array.sort(() => Math.random() - 0.5);
@@ -37,11 +37,20 @@ const includeNotANumber = (target) => {
 }
 /**
  * 入力された解答と答えが一致しているかどうかを判断する
- * @param {str} mode
- * @param {Number} number //とけたらそのまま、間違えたら減らす 
+ * @param {String} mode
+ * @param {String} submit //提出された答え
+ * @param {Object} question //提示された答え
  */
-export const judgeCorrect = (mode,number) => {
-
+export const judgeCorrect = (mode,submit,question,i) => {
+  if(mode == "EtoJ"){
+    console.log(submit);
+    console.log(question[0][0]);
+    console.log(question[0][1]);
+  }else{
+    console.log(submit);
+    console.log(question[0][0]);
+    console.log(question[0][1]);
+  }
 }
 
 const calculateRate = () => {
