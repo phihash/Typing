@@ -1,12 +1,11 @@
 "use strict";
-/**  間違え問題表示 * 点数を計算 * 割合を計算 * Tweet * 報告 * 正解かどうか判断* サニタイズフォームクリア
+/**  間違え問題表示 * 点数を計算 * 割合を計算 * Tweet * 報告 
 */
 import {datasets} from "./datasets.js"
 import {modeCheck, selectingQuestion,judgeCorrect} from "./function.js"
 export let questionNumber = 10; //デフォルト値
 export let increase = 5; //デフォルト値
 export let solvedQuestionNumber = 0; //解けた問題の数
-export let remainingQuestionNumber = 10; //解けた問題の数
 export const typingArea = document.getElementById("typingArea");
 export const questionNumberArea = document.getElementById("questionNumberArea");
 export const settingSaveButton = document.getElementById("settingSaveButton");
@@ -52,7 +51,8 @@ jToEButton.addEventListener("click",() => {
 
 const startTyping = () => {
   //問題数を設定  
-  remainingQuestionNumber = questionNumber;//残り問題数に選択した問題数w
+  solvedQuestionNumber = 0; //解けた問題の数を初期化
+  wrongAnswers.splice(0, wrongAnswers.length);//間違い配列を空にする
   questions = selectingQuestion(datasets); //問題を選択する
   mode = modeCheck(mode);//モード選択する
     if(mode == "JtoE"){
@@ -73,14 +73,19 @@ typingArea.addEventListener("keypress",(e) => {
       alert("設定してください");
       return;
     }
-    console.log("Enterされました");
-    judgeCorrect(mode,typingArea.value,Object.values(questions[questionIndex]),questionIndex);
-
-    remainingQuestionNumber--;//問題解くたび減らす
+    if(mode == "JtoE"){
+      //TODO サニタイズ
+    }
+    if(judgeCorrect(mode,typingArea.value,Object.values(questions[questionIndex]))){
+      solvedQuestionNumber++;
+    }else{
+      wrongAnswers.push(Object.values(questions[questionIndex])[0]);
+    }
+    console.log(solvedQuestionNumber+"点です");
+    console.log(wrongAnswers);
     questionIndex++;//問題解くたび増やす
-    //
     typingArea.value = null;
-      if(mode == "JtoE"){
+    if(mode == "JtoE"){
         questionSentence.textContent = Object.values(questions[questionIndex])[0][0];
         questionId.textContent = Object.keys(questions[questionIndex]);
     }else{

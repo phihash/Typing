@@ -41,23 +41,20 @@ const includeNotANumber = (target) => {
  * @param {String} submit //提出された答え
  * @param {Object} question //提示された答え
  */
-export const judgeCorrect = (mode,submit,question,i) => {
+export const judgeCorrect = (mode,submit,question) => {
   if(mode == "EtoJ"){
-    console.log(question[0][0]+"が答えです");
     if(submit == question[0][0]){
-      console.log("正解です")
+      return true;
     }else{
-      console.log("間違いです")
+      return false;      
     }
 
   }else{
-    console.log(question[0][1]+"が答えです");
 
     if(submit == question[0][1]){
-      console.log("正解です")
+      return true;
     }else{
-      wrongAnswers.push(question);
-      console.log("間違いです")
+      return false;
     }
   }
 }
