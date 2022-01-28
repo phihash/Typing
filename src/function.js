@@ -1,4 +1,4 @@
-/** 
+/**
  * 問題数を選択する
  * 間違えた問題を表示する
  * 点数を計算する
@@ -7,7 +7,6 @@
  * ランダムに問題数を選択する
  * 正解かどうかを判断する
 */
-import {datasets} from "./datasets.js"
 import {questionNumber,wrongAnswers} from "./index.js"
 
 export const shuffle = (array) => {
@@ -22,18 +21,16 @@ export const modeCheck = (str) => {
     str = "JtoE";
   }
   return str;
-} 
-
-export const createDom = (tag) => {
-  return document.createElement(tag);
 }
 
-export const removeAll = () => {
+export const removeAll = (element) => {
+  while(element){
 
+  }
 }
 
 const includeNotANumber = (target) => {
-  
+
 }
 /**
  * 入力された解答と答えが一致しているかどうかを判断する
@@ -46,7 +43,7 @@ export const judgeCorrect = (mode,submit,question) => {
     if(submit == question[0][0]){
       return true;
     }else{
-      return false;      
+      return false;
     }
 
   }else{
@@ -59,14 +56,6 @@ export const judgeCorrect = (mode,submit,question) => {
   }
 }
 
-const calculateRate = () => {
-
-}
-
-const calculateScore = () => {
-
-}
-
 export const selectingQuestion = (arr) => {
   let selectedQuestion = [];
   arr = shuffle(arr);
@@ -74,8 +63,4 @@ export const selectingQuestion = (arr) => {
     selectedQuestion.push(arr[i]);
   }
   return selectedQuestion;
-}
-
-const storeWrongQuestion = () => {
-
 }

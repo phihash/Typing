@@ -1,5 +1,5 @@
 "use strict";
-/**  間違え問題表示 * 点数を計算 * 割合を計算 * Tweet * 報告 
+/**  間違え問題表示  * Tweet
 */
 import {datasets} from "./datasets.js"
 import {modeCheck, selectingQuestion,judgeCorrect} from "./function.js"
@@ -17,10 +17,12 @@ export const plusButton = document.getElementById("plusButton");
 export const numberText = document.getElementById("numberText");
 export const questionSentence = document.getElementById("questionSentence");
 export const questionId = document.getElementById("questionId");
+export const main = document.getElementById("main");
 export let mode = "EtoJ";
 export let questions = [];
 export let wrongAnswers = [];
 export let questionIndex = 0;
+export let isFinished = false;
 
 MicroModal.init({
   awaitOpenAnimation: true,
@@ -50,7 +52,11 @@ jToEButton.addEventListener("click",() => {
 });
 
 const startTyping = () => {
-  //問題数を設定  
+  //問題数を設定
+  if(isFinished){
+    alert("もう1度行うにはリロードしてください");
+    settingSaveButton.disabled = true;
+  }
   solvedQuestionNumber = 0; //解けた問題の数を初期化
   wrongAnswers.splice(0, wrongAnswers.length);//間違い配列を空にする
   questions = selectingQuestion(datasets); //問題を選択する
@@ -73,6 +79,7 @@ typingArea.addEventListener("keypress",(e) => {
       alert("設定してください");
       return;
     }
+
     if(mode == "JtoE"){
       //TODO サニタイズ
     }
@@ -81,8 +88,26 @@ typingArea.addEventListener("keypress",(e) => {
     }else{
       wrongAnswers.push(Object.values(questions[questionIndex])[0]);
     }
-    console.log(solvedQuestionNumber+"点です");
-    console.log(wrongAnswers);
+    if(questionIndex == questionNumber-1){
+        // 終了した
+        isFinished = true;
+        while(main.firstChild){
+             main.removeChild( main.firstChild );
+             //子要素全部消し
+        }
+        main.classList.add("resultArea");
+        let resultTitle = document.createElement("h2");
+        resultTitle.textContent = "あなたの間違えた問題";
+        main.appendChild(resultTitle);
+        for(let i=0;i < wrongAnswers.length;i++){
+          console.log(wrongAnswers[i]);
+          let p1 = document.createElement("p");
+          p1.classList.add("result");
+          p1.textContent = wrongAnswers[i];
+          main.appendChild(p1);
+        }
+        alert(questionNumber+"問中"+solvedQuestionNumber+"問正解しました"+Math.floor(solvedQuestionNumber/questionNumber*100)+"%です");
+    }
     questionIndex++;//問題解くたび増やす
     typingArea.value = null;
     if(mode == "JtoE"){
