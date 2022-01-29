@@ -12,7 +12,7 @@ import {questionNumber,wrongAnswers} from "./index.js"
 export const  checkIsAlphabets = (string) => {
   string = string.split("");
   for(let i=0;i < string.length;i++){
-    if(string[i].charCodeAt(0)<64 || string[i].charCodeAt(0)>123){
+    if(string[i].charCodeAt(0)>64 && string[i].charCodeAt(0)<123){
       return true;
     }
   }
@@ -21,7 +21,7 @@ export const  checkIsAlphabets = (string) => {
 export const processAlphabets = (string) => {
   string = string.split("");
   for(let i=0; i < string.length;i++){
-    string[i] = string[i].toUpperCase();
+    string[i] = string[i].toLowerCase();
   }
   return string.join("")
 }

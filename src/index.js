@@ -1,8 +1,6 @@
 "use strict";
-/**  間違え問題表示  * Tweet
-*/
 import {datasets} from "./datasets.js"
-import {modeCheck, selectingQuestion,judgeCorrect} from "./function.js"
+import {modeCheck, selectingQuestion,judgeCorrect,checkIsAlphabets, processAlphabets} from "./function.js"
 export let questionNumber = 10; //デフォルト値
 export let increase = 5; //デフォルト値
 export let solvedQuestionNumber = 0; //解けた問題の数
@@ -80,9 +78,21 @@ typingArea.addEventListener("keypress",(e) => {
       return;
     }
 
-    if(mode == "JtoE"){
-      //TODO サニタイズ
+    if(typingArea.value.length === 0){
+      alert("入力してください");
+      return;
     }
+
+    if(mode == "JtoE"){
+      if(!checkIsAlphabets(typingArea.value)){
+        alert("半角英字で入力してください");
+        return;
+      }
+    }
+    console.log(typingArea.value);
+    typingArea.value = processAlphabets(typingArea.value);
+    console.log(typingArea.value);
+
     if(judgeCorrect(mode,typingArea.value,Object.values(questions[questionIndex]))){
       solvedQuestionNumber++;
     }else{
@@ -97,6 +107,7 @@ typingArea.addEventListener("keypress",(e) => {
         }
         main.classList.add("resultArea");
         let resultTitle = document.createElement("h2");
+        resultTitle.classList.add("resultTitle");
         resultTitle.textContent = "あなたの間違えた問題";
         main.appendChild(resultTitle);
         for(let i=0;i < wrongAnswers.length;i++){
@@ -106,6 +117,7 @@ typingArea.addEventListener("keypress",(e) => {
           p1.textContent = wrongAnswers[i];
           main.appendChild(p1);
         }
+
         let p2 = document.createElement("p");
         p2.innerHTML = questionNumber+"問中"+solvedQuestionNumber+"問正解しました。"+"<br></br>"+"正答率:"+Math.floor(solvedQuestionNumber/questionNumber*100)+"%";
         let scoreArea = document.createElement("div");
@@ -113,14 +125,22 @@ typingArea.addEventListener("keypress",(e) => {
         scoreArea.appendChild(p2);
 
         const tweetButton = document.createElement("a");
-        const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag=Quiz&ref_src=twsrc%5Etfw';
+
+        const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag=Typing&ref_src=twsrc%5Etfw';
         tweetButton.setAttribute('href',hrefValue);
-        tweetButton.textContent = "シェアする";
+        tweetButton.className = "twitter-share-button";
+        tweetButton.setAttribute('data-text', questionNumber+"問中"+solvedQuestionNumber+"問正解しました!");
+
+        const script = document.createElement('script');
+        script.setAttribute('src', 'https://platform.twitter.com/widgets.js');
+        tweetButton.appendChild(script);
+
         const tweetArea = document.createElement("div");
         tweetArea.classList.add("tweetArea");
         tweetArea.appendChild(tweetButton);
         main.appendChild(scoreArea);
         main.appendChild(tweetArea);
+        return;
     }
     questionIndex++;//問題解くたび増やす
     typingArea.value = null;
