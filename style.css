@@ -36,7 +36,7 @@ button:hover{
   min-height: 100vh;
 }
 .wrapper{
-  width: 320px;
+  width: 300px;
   margin: 0 auto;
 }
 
@@ -108,7 +108,7 @@ button:hover{
 .questionSentenceArea{
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 1.3rem;
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
 }
 
@@ -126,7 +126,7 @@ button:hover{
   font-size: 2rem;
   border-radius: 0.4rem;
   font-family: 'Noto Sans JP', sans-serif;
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
   margin-top: 1.2rem;
 }
@@ -143,7 +143,7 @@ main{
   top:10%;
   left: 0;
   right:0;
-  bottom: 25%;
+  bottom: 30%;
   width: 75%;
   margin: 0 auto;
   border-radius: 1rem;
@@ -245,7 +245,7 @@ main{
   font-weight: 600;
 }
 
-@media screen and (min-width:720px) {
+@media screen and (min-width:420px) {
   .footer{
     width: 1020px;
   }
