@@ -9,6 +9,23 @@
 */
 import {questionNumber,wrongAnswers} from "./index.js"
 
+export const  checkIsAlphabets = (string) => {
+  string = string.split("");
+  for(let i=0;i < string.length;i++){
+    if(string[i].charCodeAt(0)<64 || string[i].charCodeAt(0)>123){
+      return true;
+    }
+  }
+}
+
+export const processAlphabets = (string) => {
+  string = string.split("");
+  for(let i=0; i < string.length;i++){
+    string[i] = string[i].toUpperCase();
+  }
+  return string.join("")
+}
+
 export const shuffle = (array) => {
   array.sort(() => Math.random() - 0.5);
   return array;

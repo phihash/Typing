@@ -107,11 +107,20 @@ typingArea.addEventListener("keypress",(e) => {
           main.appendChild(p1);
         }
         let p2 = document.createElement("p");
-        p2.textContent = questionNumber+"問中"+solvedQuestionNumber+"問正解しました"+"正答率:"+Math.floor(solvedQuestionNumber/questionNumber*100)+"%";
+        p2.innerHTML = questionNumber+"問中"+solvedQuestionNumber+"問正解しました。"+"<br></br>"+"正答率:"+Math.floor(solvedQuestionNumber/questionNumber*100)+"%";
         let scoreArea = document.createElement("div");
         scoreArea.classList.add("scoreArea");
         scoreArea.appendChild(p2);
+
+        const tweetButton = document.createElement("a");
+        const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag=Quiz&ref_src=twsrc%5Etfw';
+        tweetButton.setAttribute('href',hrefValue);
+        tweetButton.textContent = "シェアする";
+        const tweetArea = document.createElement("div");
+        tweetArea.classList.add("tweetArea");
+        tweetArea.appendChild(tweetButton);
         main.appendChild(scoreArea);
+        main.appendChild(tweetArea);
     }
     questionIndex++;//問題解くたび増やす
     typingArea.value = null;
