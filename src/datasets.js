@@ -15,4 +15,6 @@ export const datasets = [
     {"12":["心筋炎","myocarditis"]},
     {"13":["胆嚢炎","cholecystitis"]},
     {"14":["結腸軸捻転症","volvulus"]},
+    {"15":["胆嚢","gallbladder"]},
+    {"16":["回腸","ileum"]},
 ];

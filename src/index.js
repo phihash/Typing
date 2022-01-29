@@ -106,7 +106,12 @@ typingArea.addEventListener("keypress",(e) => {
           p1.textContent = wrongAnswers[i];
           main.appendChild(p1);
         }
-        alert(questionNumber+"問中"+solvedQuestionNumber+"問正解しました"+Math.floor(solvedQuestionNumber/questionNumber*100)+"%です");
+        let p2 = document.createElement("p");
+        p2.textContent = questionNumber+"問中"+solvedQuestionNumber+"問正解しました"+"正答率:"+Math.floor(solvedQuestionNumber/questionNumber*100)+"%";
+        let scoreArea = document.createElement("div");
+        scoreArea.classList.add("scoreArea");
+        scoreArea.appendChild(p2);
+        main.appendChild(scoreArea);
     }
     questionIndex++;//問題解くたび増やす
     typingArea.value = null;

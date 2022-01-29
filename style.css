@@ -205,11 +205,13 @@ main{
   margin-top: 1.2rem;
 }
 
-.result{
+.result,.scoreArea{
   margin-top: 0.6rem;
   font-size: 1.2rem;
   font-weight: 800;
 }
+
+
 
 .footer{
   padding-bottom: 2rem;
