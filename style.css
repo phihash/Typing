@@ -36,7 +36,7 @@ button:hover{
   min-height: 100vh;
 }
 .wrapper{
-  width: 300px;
+  width: 320px;
   margin: 0 auto;
 }
 
@@ -61,6 +61,7 @@ button:hover{
 }
 
 .jToEButton,.eToJButton{
+  font-size:0.9rem;
   width:70%;
   margin: 0 auto;
   margin-top: 1.2rem;
@@ -72,13 +73,13 @@ button:hover{
 
 
 .settingSaveButton{
-  padding: 0.8rem 1.4rem;
-  font-size: 1.2rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.1rem;
 }
 
 .closeButton{
-  padding: 0.8rem 1.4rem;
-  font-size: 1.2rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.1rem;
   color:#f2f2f2;
   background-color: rgb(117, 117, 202);
 }
@@ -96,7 +97,7 @@ button:hover{
 
 @media screen and (min-width:720px) {
   .wrapper{
-    width: 1020px;
+    width: 720px;
   }
 }
 
@@ -108,7 +109,7 @@ button:hover{
 .questionSentenceArea{
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 1.3rem;
-  width: 85%;
+  width: 88%;
   margin: 0 auto;
 }
 
@@ -126,7 +127,7 @@ button:hover{
   font-size: 2rem;
   border-radius: 0.4rem;
   font-family: 'Noto Sans JP', sans-serif;
-  width: 85%;
+  width: 88%;
   margin: 0 auto;
   margin-top: 1.2rem;
 }
@@ -245,9 +246,11 @@ main{
   font-weight: 600;
 }
 
-@media screen and (min-width:420px) {
+@media screen and (min-width:480px) {
   .footer{
     width: 1020px;
+    margin: 0 auto;
+    margin-left:8%;
   }
   .footerButton{
     display: block;

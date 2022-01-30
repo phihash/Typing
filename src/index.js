@@ -119,7 +119,11 @@ typingArea.addEventListener("keypress",(e) => {
         }
 
         let p2 = document.createElement("p");
+        if(solvedQuestionNumber == 0){
+         p2.innerHTML = "1問も正解しませんでした"+"<br></br>"+"正答率:0%";
+        }else{
         p2.innerHTML = questionNumber+"問中"+solvedQuestionNumber+"問正解しました。"+"<br></br>"+"正答率:"+Math.floor(solvedQuestionNumber/questionNumber*100)+"%";
+        }
         let scoreArea = document.createElement("div");
         scoreArea.classList.add("scoreArea");
         scoreArea.appendChild(p2);
@@ -129,7 +133,11 @@ typingArea.addEventListener("keypress",(e) => {
         const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag=Typing&ref_src=twsrc%5Etfw';
         tweetButton.setAttribute('href',hrefValue);
         tweetButton.className = "twitter-share-button";
-        tweetButton.setAttribute('data-text', questionNumber+"問中"+solvedQuestionNumber+"問正解しました!");
+        if(solvedQuestionNumber == 0){
+          tweetButton.setAttribute('data-text', "1問も正解しませんでした");
+        }else{
+          tweetButton.setAttribute('data-text', questionNumber+"問中"+solvedQuestionNumber+"問正解しました!");
+        }
 
         const script = document.createElement('script');
         script.setAttribute('src', 'https://platform.twitter.com/widgets.js');
