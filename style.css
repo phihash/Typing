@@ -233,10 +233,9 @@ main{
 .footer{
   width: 320px;
   margin: 0 auto;
+  margin-left:9%;
   padding-bottom: 2rem;
 }
-
-
 
 .footerButton{
   display: block;
